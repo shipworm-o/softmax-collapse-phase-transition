@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1201741992.svg)](https://doi.org/10.5281/zenodo.19425876)
+
 # Tail-Driven Finite-Size Transition in Softmax Collapse
 
 ## Overview
