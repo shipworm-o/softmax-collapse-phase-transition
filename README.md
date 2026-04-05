@@ -1,131 +1,138 @@
-[![DOI](https://zenodo.org/badge/1201741992.svg)](https://doi.org/10.5281/zenodo.19425970)
+# Tail-Driven Finite-Size Transition in Softmax Collapse
 
-# Tail-driven Phase Transition in Softmax Collapse
+## Overview
 
-*(Reproducible Research Package)*
+This repository presents a scaling theory for the collapse phenomenon in softmax distributions.
 
----
+We show that softmax collapse can be understood as a **finite-size phase transition** driven by extreme-value statistics of the lower tail of energy distributions.
 
-## Results
-
-![Collapse Phase Transition](results/fig_collapse_vs_df.png)
+The mechanism reduces to a simple condition on the **gap between the two smallest energies**, which governs when collapse occurs.
 
 ---
 
-## 📌 Overview
+## Key Idea
 
-This repository demonstrates that **softmax collapse** is governed by a **tail-driven phase transition**.
+Softmax weights:
 
-* Collapse probability follows a **logistic transition** in the tail exponent ( \nu )
-* The critical point scales with system size:
+w_i = exp(-E_i) / sum_j exp(-E_j)
 
-[
-\nu_c(N) \approx 0.252 \log N - 0.175
-]
+Define the gap between the two smallest energies:
 
-All results are fully reproducible using the provided data and scripts.
+Δ = E_(2) - E_(1)
+
+Collapse occurs when:
+
+Δ > log(1/ε)
 
 ---
 
-## ⚙️ Problem Setup
+## Main Results
 
-Given energy samples:
+* **Extreme-gap reduction**
+  Collapse is governed by a two-body variable (minimum gap)
+
+* **Gap scaling (Fréchet-type)**
+  Δ ~ N^(1/ν)
+
+* **Finite-size critical point**
+  ν_c(N) ~ log(N) / log(1/ε)
+
+* **Scaling law**
+  P_collapse = F((ν - ν_c(N)) * log(N))
+
+* **Gumbel-like transition**
+  Emerges from thresholding a heavy-tailed variable
+
+---
+
+## Figures
+
+### Phase Transition
+
+Collapse probability sharpens as system size increases.
+
+![Figure 1](figs/fig1.png)
+
+---
+
+### Scaling Collapse
+
+All curves collapse onto a universal curve under rescaling.
+
+![Figure 2](figs/fig2.png)
+
+---
+
+### Gap Scaling
+
+The extreme gap grows rapidly for small ν, consistent with EVT predictions.
+
+![Figure 3](figs/fig3.png)
+
+---
+
+## Reproducibility
+
+Run the simulation:
+
+```bash
+python code/simulate.py
+```
+
+This will:
+
+* Generate all figures
+* Save outputs to `figs/`
+* Reproduce the results shown above
+
+---
+
+## Repository Structure
 
 ```
-E_i ~ Student-t(ν)
+.
+├── paper.md        # Full theoretical document (LaTeX-style math)
+├── code/
+│   └── simulate.py # Reproducible simulation
+├── figs/           # Generated figures
+└── README.md
 ```
+
+---
+
+## Connection to Particle Filters
 
 Define:
 
-```
-S = sum exp(-(E_i - E_min)) - 1
-```
+E_i = -log p(y | x_i)
 
-Collapse condition:
+Then softmax weights correspond to particle weights.
 
-```
-S < 1e-8
-```
+Collapse corresponds to particle degeneracy:
 
----
-
-## 🔬 Key Findings
-
-* Logistic phase transition in collapse probability
-* Critical point scales as ( \nu_c(N) \propto \log N )
-* Heavy-tailed regime → collapse-dominated
-* Light-tailed regime → competitive dynamics
+* w_max → 1
+* Effective Sample Size → 1
 
 ---
 
-## ▶️ Run
+## Notes
 
-Install dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-Run full pipeline:
-
-```
-cd scripts
-python scripts/run_experiment.py
-python scripts/fit_analysis.py
-python scripts/plot_results.py
-```
+* This is a **finite-size scaling theory**
+* The transition depends explicitly on system size N
+* The phenomenon is governed by the **lower tail** of the distribution
 
 ---
 
-## 📁 Project Structure
+## Status
 
-```
-project/
-├── README.md
-├── requirements.txt
-├── data/
-├── paper/
-│   └── PAPER.md
-├── scripts/
-└── results/
-```
+* Theory: complete
+* Numerical validation: complete
+* Reproducibility: ensured
 
 ---
 
-## 📊 Data
+## Next Steps
 
-### collapse_raw.csv
-
-```
-N,df,trial,collapse
-```
-
-### collapse_summary.csv
-
-```
-N,df,collapse_rate
-```
-
-### critical_points.csv
-
-```
-N,nu_c,slope
-```
-
----
-
-## 📄 Paper
-
-Full write-up available at:
-
-```
-paper/PAPER.md
-```
-
----
-
-## 🧠 Summary
-
-Softmax collapse is not a numerical artifact, but a **finite-size phase transition** driven by extreme values in heavy-tailed distributions.
-
----
+* arXiv submission
+* Extension to particle filter experiments
+* Analytical refinement of scaling function
