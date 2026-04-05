@@ -61,6 +61,7 @@ pip install -r requirements.txt
 Run full pipeline:
 
 ```
+cd scripts
 python scripts/run_experiment.py
 python scripts/fit_analysis.py
 python scripts/plot_results.py
