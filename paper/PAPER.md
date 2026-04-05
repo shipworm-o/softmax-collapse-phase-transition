@@ -149,7 +149,7 @@ We emphasize that this is a **finite-size effect**, not a thermodynamic phase tr
 All results are fully reproducible. Code, raw data, and analysis scripts are publicly available:
 
 - Repository: https://github.com/shipworm-o/softmax-collapse-phase-transition  
-- DOI archive: https://doi.org/10.5281/zenodo.19425876  
+- DOI archive: https://doi.org/10.5281/zenodo.19425970  
 
 ---
 
