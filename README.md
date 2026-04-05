@@ -1,6 +1,14 @@
+[![DOI](https://zenodo.org/badge/1201741992.svg)](https://doi.org/10.5281/zenodo.19425877)
+
 # Tail-driven Phase Transition in Softmax Collapse
 
 *(Reproducible Research Package)*
+
+---
+
+## Results
+
+![Collapse Phase Transition](results/fig_collapse_vs_df.png)
 
 ---
 
