@@ -181,7 +181,7 @@ We validate the theoretical predictions via Monte Carlo simulations.
 - Collapse probability vs ν
 - Sharpening transition with increasing N
 
-![Figure 1](Figure_1.png)
+![Figure 1](figs/fig1.png)
 
 ---
 
@@ -195,7 +195,7 @@ x = (\nu - \nu_c(N)) \log N
 
 - All curves collapse onto a single master curve
 
-![Figure 2](Figure_2.png)
+![Figure 2](figs/fig2.png)
 
 ---
 
@@ -204,7 +204,7 @@ x = (\nu - \nu_c(N)) \log N
 - Mean gap vs ν
 - Strong growth for small ν, consistent with EVT scaling
 
-![Figure 3](Figure_3.png)
+![Figure 3](figs/fig3.png)
 
 ---
 
@@ -245,3 +245,5 @@ We have shown that softmax collapse:
 ## Core Result
 
 Softmax collapse is a finite-size transition induced by extreme-value spacing between the two smallest energies.
+
+Code and data available at DOI: https://doi.org/10.5281/zenodo.19425876
